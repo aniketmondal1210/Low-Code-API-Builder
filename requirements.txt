@@ -1,0 +1,24 @@
+# ============================================================
+# Low-Code API Builder Platform — Python Dependencies
+# ============================================================
+# Install with:  pip install -r requirements.txt
+# ============================================================
+
+# --- Web Framework ---
+flask==3.1.0              # Core web framework
+flask-cors==5.0.1         # Cross-Origin Resource Sharing (allow frontend ↔ backend)
+
+# --- Database ---
+pymongo==4.11.3           # MongoDB driver for Python
+
+# --- API Documentation ---
+flask-swagger-ui==4.11.1  # Swagger UI integration for auto-generated docs
+
+# --- HTTP Client ---
+requests==2.32.3          # Make external API calls from workflow blocks
+
+# --- Validation ---
+jsonschema==4.23.0        # Validate request payloads against user-defined schemas
+
+# --- Environment ---
+python-dotenv==1.0.1      # Load .env variables

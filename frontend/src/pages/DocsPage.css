@@ -1,0 +1,123 @@
+/* ============================================================
+   pages/DocsPage.css — API Documentation Page Styles
+   ============================================================ */
+
+.docs-page {
+    min-height: 100vh;
+    background: var(--color-bg-primary);
+    display: flex;
+    flex-direction: column;
+}
+
+.docs-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-6);
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    flex-shrink: 0;
+}
+
+.docs-nav-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.docs-content {
+    flex: 1;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: var(--space-6);
+}
+
+/* --- Swagger UI dark theme overrides --- */
+.swagger-ui {
+    background: transparent !important;
+}
+
+.swagger-ui .topbar {
+    display: none !important;
+}
+
+.swagger-ui .info .title,
+.swagger-ui .info .description p,
+.swagger-ui .opblock-summary-description,
+.swagger-ui .opblock-description p,
+.swagger-ui .response-col_description__inner p,
+.swagger-ui table thead tr th,
+.swagger-ui .parameter__name,
+.swagger-ui .parameter__type,
+.swagger-ui .tab li,
+.swagger-ui label,
+.swagger-ui .model-title,
+.swagger-ui .model {
+    color: var(--color-text-primary) !important;
+}
+
+.swagger-ui .info .title small {
+    color: var(--color-text-secondary) !important;
+}
+
+.swagger-ui .scheme-container,
+.swagger-ui .opblock .opblock-section-header {
+    background: var(--color-bg-tertiary) !important;
+    border-color: var(--color-border) !important;
+}
+
+.swagger-ui .opblock {
+    background: var(--color-bg-glass) !important;
+    border-color: var(--color-border) !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: var(--space-3) !important;
+}
+
+.swagger-ui .opblock .opblock-summary {
+    border-color: var(--color-border) !important;
+}
+
+.swagger-ui .opblock.opblock-post {
+    border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.swagger-ui .opblock.opblock-post .opblock-summary {
+    border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+.swagger-ui .opblock.opblock-get {
+    border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+.swagger-ui .opblock.opblock-delete {
+    border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.swagger-ui .opblock.opblock-put {
+    border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+.swagger-ui .btn {
+    color: var(--color-text-primary) !important;
+    border-color: var(--color-border) !important;
+}
+
+.swagger-ui .responses-inner {
+    background: var(--color-bg-secondary) !important;
+}
+
+.swagger-ui .response-col_status {
+    color: var(--color-text-primary) !important;
+}
+
+.swagger-ui textarea,
+.swagger-ui input[type="text"] {
+    background: var(--color-bg-secondary) !important;
+    color: var(--color-text-primary) !important;
+    border-color: var(--color-border) !important;
+}
+
+.swagger-ui .model-box {
+    background: var(--color-bg-tertiary) !important;
+}

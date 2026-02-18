@@ -1,0 +1,72 @@
+/* ============================================================
+   WorkflowEditor/ConfigPanel.css — Configuration Panel Styles
+   ============================================================ */
+
+.config-panel {
+    width: 340px;
+    min-width: 340px;
+    background: var(--color-bg-secondary);
+    border-left: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.config-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    gap: var(--space-3);
+}
+
+.config-header-info {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-width: 0;
+}
+
+.config-header-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.config-header-title {
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.config-header-desc {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.config-close {
+    font-size: var(--font-size-lg);
+    flex-shrink: 0;
+}
+
+.config-body {
+    flex: 1;
+    padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.config-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.config-help {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    line-height: 1.4;
+    margin-top: var(--space-1);
+}

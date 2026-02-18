@@ -1,0 +1,93 @@
+/* ============================================================
+   WorkflowEditor/WorkflowEditor.css — Canvas & Toolbar Styles
+   ============================================================ */
+
+.workflow-editor {
+    display: flex;
+    height: calc(100vh - 64px);
+    background: var(--color-bg-primary);
+}
+
+.editor-canvas-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 0;
+}
+
+/* --- Toolbar --- */
+.editor-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    z-index: 10;
+    flex-shrink: 0;
+}
+
+.toolbar-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.toolbar-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.toolbar-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+/* --- React Flow canvas overrides --- */
+.editor-canvas {
+    flex: 1;
+    background: var(--color-bg-primary) !important;
+}
+
+/* Controls panel */
+.editor-controls {
+    background: var(--color-bg-secondary) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.editor-controls button {
+    background: var(--color-bg-secondary) !important;
+    border-color: var(--color-border) !important;
+    color: var(--color-text-secondary) !important;
+    fill: var(--color-text-secondary) !important;
+}
+
+.editor-controls button:hover {
+    background: var(--color-bg-glass-hover) !important;
+    color: var(--color-text-primary) !important;
+    fill: var(--color-text-primary) !important;
+}
+
+/* MiniMap */
+.editor-minimap {
+    background: var(--color-bg-secondary) !important;
+    border: 1px solid var(--color-border) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* Edge selection */
+.react-flow__edge.selected .react-flow__edge-path {
+    stroke: var(--color-accent-hover) !important;
+    stroke-width: 3 !important;
+}
+
+/* Animated edge dashes */
+.react-flow__edge-path {
+    stroke: var(--color-accent) !important;
+}

@@ -1,0 +1,136 @@
+/* ============================================================
+   WorkflowEditor/Sidebar.css — Block Palette Styles
+   ============================================================ */
+
+.editor-sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--color-bg-secondary);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: var(--space-5) var(--space-4) var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-md);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.sidebar-icon {
+    font-size: var(--font-size-lg);
+}
+
+.sidebar-subtitle {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+}
+
+.sidebar-blocks {
+    flex: 1;
+    padding: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.sidebar-block {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-glass);
+    border: 1px solid var(--color-border);
+    cursor: grab;
+    transition: all var(--transition-fast);
+    user-select: none;
+}
+
+.sidebar-block:hover {
+    background: var(--color-bg-glass-hover);
+    transform: translateX(4px);
+}
+
+.sidebar-block:active {
+    cursor: grabbing;
+    transform: scale(0.97);
+}
+
+/* Block type accent on the left border */
+.sidebar-block[data-type="input"] {
+    border-left: 3px solid var(--color-block-input);
+}
+
+.sidebar-block[data-type="db_query"] {
+    border-left: 3px solid var(--color-block-db);
+}
+
+.sidebar-block[data-type="api_call"] {
+    border-left: 3px solid var(--color-block-api);
+}
+
+.sidebar-block[data-type="logic"] {
+    border-left: 3px solid var(--color-block-logic);
+}
+
+.sidebar-block[data-type="transform"] {
+    border-left: 3px solid var(--color-block-transform);
+}
+
+.sidebar-block[data-type="output"] {
+    border-left: 3px solid var(--color-block-output);
+}
+
+.sidebar-block-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.sidebar-block-info {
+    min-width: 0;
+}
+
+.sidebar-block-label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1px;
+}
+
+.sidebar-block-desc {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Bottom help tip */
+.sidebar-tip {
+    padding: var(--space-3) var(--space-4);
+    margin: var(--space-2) var(--space-3) var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--color-info-bg);
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    font-size: var(--font-size-xs);
+    color: var(--color-info);
+    line-height: 1.4;
+}
+
+.tip-icon {
+    flex-shrink: 0;
+}

@@ -115,7 +115,7 @@ mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/api_builder?retry
 | **Root Directory** | *(leave blank — project root)* |
 | **Runtime** | `Python 3` |
 | **Build Command** | `pip install -r requirements.txt` |
-| **Start Command** | `gunicorn backend.app:create_app() --bind 0.0.0.0:$PORT --workers 4 --timeout 120` |
+| **Start Command** | `gunicorn wsgi:app --bind 0.0.0.0:$PORT --workers 4 --timeout 120` |
 | **Plan** | Free |
 
 > 💡 **Tip:** The Start Command is also in the `Procfile`, so Render may auto-detect it. But it's good to set it explicitly.
@@ -345,7 +345,9 @@ ModuleNotFoundError: No module named 'gunicorn'
 Error: No module named 'backend'
 ```
 
-**Fix:** Make sure the **Root Directory** on Render is **blank** (project root), NOT `backend/`. Gunicorn needs to run from the project root so `backend.app` is importable as a Python package.
+**Fix:** Make sure the **Root Directory** on Render is **blank** (project root), NOT `backend/`. Gunicorn needs to run from the project root so `wsgi.py` and the `backend` package are importable.
+
+> 💡 We use a `wsgi.py` entry point file instead of `backend.app:create_app()` because Render's bash shell interprets the parentheses `()` as shell syntax and throws an error.
 
 ---
 

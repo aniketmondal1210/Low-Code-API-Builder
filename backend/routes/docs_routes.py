@@ -10,7 +10,7 @@
 # interactive documentation page.
 # ============================================================
 
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from backend.models.workflow import WorkflowModel
 from backend.code_generator import generate_openapi_spec
 from backend.extensions import require_db, db_available
@@ -37,6 +37,10 @@ def get_openapi_spec():
     - Each path has request/response schemas derived from
       the workflow's input/output blocks.
     """
+    # Dynamically determine the server URL from the current request
+    # Works for both localhost (dev) and the Render URL (production)
+    server_url = request.host_url.rstrip('/')
+
     # Base OpenAPI 3.0 spec
     spec = {
         'openapi': '3.0.0',
@@ -51,8 +55,8 @@ def get_openapi_spec():
         },
         'servers': [
             {
-                'url': 'http://localhost:5000',
-                'description': 'Local development server'
+                'url': server_url,
+                'description': 'API Server'
             }
         ],
         'paths': {},

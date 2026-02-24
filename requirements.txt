@@ -22,3 +22,6 @@ jsonschema==4.23.0        # Validate request payloads against user-defined schem
 
 # --- Environment ---
 python-dotenv==1.0.1      # Load .env variables
+
+# --- Production Server ---
+gunicorn==23.0.0          # Production-grade WSGI server (used by Render)

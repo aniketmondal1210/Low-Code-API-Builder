@@ -45,6 +45,9 @@ def init_db(app):
     from urllib.parse import urlparse
     parsed = urlparse(mongo_uri)
     db_name = parsed.path.lstrip('/')  # "/api_builder" → "api_builder"
+    # Strip any query params that might be attached (e.g. "api_builder?appName=Cluster0")
+    if '?' in db_name:
+        db_name = db_name.split('?')[0]
     if not db_name:
         db_name = 'api_builder'  # Fallback default
 

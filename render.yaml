@@ -1,0 +1,28 @@
+# ============================================================
+# render.yaml — Render Blueprint (Infrastructure as Code)
+# ============================================================
+# Push this file to your repo and Render will auto-detect it.
+# Docs: https://docs.render.com/blueprint-spec
+# ============================================================
+
+services:
+  - type: web
+    name: low-code-api-builder-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn backend.app:create_app() --bind 0.0.0.0:$PORT --workers 4 --timeout 120
+    healthCheckPath: /
+    envVars:
+      - key: MONGO_URI
+        sync: false   # Set manually in Render dashboard
+      - key: FLASK_SECRET_KEY
+        generateValue: true   # Auto-generate a secure random value
+      - key: FLASK_DEBUG
+        value: "False"
+      - key: FLASK_PORT
+        value: "5000"
+      - key: FRONTEND_URL
+        sync: false   # Set to your Vercel URL after frontend deploy
+      - key: PYTHON_VERSION
+        value: "3.11.11"

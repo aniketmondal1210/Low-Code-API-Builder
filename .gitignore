@@ -31,6 +31,10 @@ frontend/.vite/
 .env.local
 .env.production
 .env.*.local
+frontend/.env
+frontend/.env.local
+frontend/.env.production
+frontend/.env.*.local
 
 # ============================================================
 # IDE & Editor

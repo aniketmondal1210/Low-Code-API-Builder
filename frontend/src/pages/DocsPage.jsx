@@ -30,7 +30,7 @@ function DocsPage() {
             {/* Swagger UI */}
             <div className="docs-content">
                 <SwaggerUI
-                    url="http://localhost:5000/api/docs/openapi.json"
+                    url={`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/docs/openapi.json`}
                     docExpansion="list"
                     defaultModelsExpandDepth={-1}
                     filter={true}

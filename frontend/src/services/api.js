@@ -9,8 +9,12 @@
 import axios from 'axios';
 
 // Create a pre-configured Axios instance
+// In production (Vercel), VITE_API_URL points to the Render backend.
+// In development, falls back to local Flask dev server.
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: API_BASE_URL,
   headers: { 'Content-Type': 'application/json' },
   timeout: 30000,   // 30-second timeout
 });

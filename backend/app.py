@@ -55,16 +55,22 @@ def create_app():
     app.config['DEBUG'] = Config.DEBUG
 
     # --- Step 3: Enable CORS ---
-    # Allow the React frontend (ports 5173-5174) to call the backend (port 5000)
-    # Multiple ports to handle different Vite dev server instances
+    # Allow the React frontend to call the backend.
+    # In production, FRONTEND_URL points to the Vercel domain.
+    # In development, defaults to local Vite dev server ports.
+    allowed_origins = [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:5174",
+    ]
+    frontend_url = Config.FRONTEND_URL
+    if frontend_url:
+        allowed_origins.append(frontend_url.rstrip('/'))
+
     CORS(app, resources={
         r"/api/*": {
-            "origins": [
-                "http://localhost:5173", 
-                "http://127.0.0.1:5173",
-                "http://localhost:5174",
-                "http://127.0.0.1:5174"
-            ],
+            "origins": allowed_origins,
             "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
             "allow_headers": ["Content-Type", "Authorization"],
         }

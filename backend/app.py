@@ -63,6 +63,7 @@ def create_app():
         "http://127.0.0.1:5173",
         "http://localhost:5174",
         "http://127.0.0.1:5174",
+        "https://low-code-api-builder.vercel.app",
     ]
     frontend_url = Config.FRONTEND_URL
     if frontend_url:

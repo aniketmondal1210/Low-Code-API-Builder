@@ -58,6 +58,10 @@ def create_app():
     # Allow the React frontend to call the backend.
     # In production, FRONTEND_URL points to the Vercel domain.
     # In development, defaults to local Vite dev server ports.
+    #
+    # NOTE: We apply CORS globally (not per-resource regex) because
+    # flask-cors treats resource keys as REGEX patterns, and a
+    # pattern like r"/api/*" does NOT work as a glob wildcard.
     allowed_origins = [
         "http://localhost:5173",
         "http://127.0.0.1:5173",
@@ -69,13 +73,13 @@ def create_app():
     if frontend_url:
         allowed_origins.append(frontend_url.rstrip('/'))
 
-    CORS(app, resources={
-        r"/api/*": {
-            "origins": allowed_origins,
-            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-            "allow_headers": ["Content-Type", "Authorization"],
-        }
-    })
+    CORS(
+        app,
+        origins=allowed_origins,
+        methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        allow_headers=["Content-Type", "Authorization"],
+        supports_credentials=True,
+    )
 
     # --- Step 4: Initialize MongoDB ---
     init_db(app)

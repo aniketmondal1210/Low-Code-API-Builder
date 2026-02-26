@@ -290,7 +290,7 @@ def get_users():
 
 ```bash
 # 1. Clone the project
-cd "c:\Users\anike\Downloads\AniketCodes\PEP Project"
+cd "low-code-api-builder"
 
 # 2. Set up Python backend
 pip install -r requirements.txt
